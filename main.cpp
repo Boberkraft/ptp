@@ -53,11 +53,20 @@ int predict(vector<int> given) {
         return next_geometric(second_last, last);
     }
 
-    return 0;
+    return NULL;
+}
+
+void respond_or_exit(int predicted_value) {
+    if (predicted_value == NULL) {
+        exit(1);
+    } else {
+        cout << predicted_value;
+        exit(0);
+    }
 }
 
 int main() {
     vector<int> given = { 1, 2, 3, 4, 5 };
-    std::cout << predict(given) << std::endl;
-    return 0;    
+
+    respond_or_exit(predict(given))   
 }
