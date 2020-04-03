@@ -68,5 +68,5 @@ void respond_or_exit(int predicted_value) {
 int main() {
     vector<int> given = { 1, 2, 3, 4, 5 };
 
-    respond_or_exit(predict(given))   
+    respond_or_exit(predict(given));  
 }
