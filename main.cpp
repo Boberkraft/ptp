@@ -36,7 +36,7 @@ bool is_geometric(vector<int> given) {
     return true;
 }
 
-int next_geometric(int second, int second) {
+int next_geometric(int first, int second) {
     int q = second / float(first);
     return second * q;
 }
@@ -57,7 +57,6 @@ int predict(vector<int> given) {
 }
 
 int main() {
-
     vector<int> given = { 1, 2, 3, 4, 5 };
     std::cout << predict(given) << std::endl;
     return 0;    
