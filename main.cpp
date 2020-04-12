@@ -9,7 +9,7 @@ using std::vector, std::cout, std::endl;
 #include "geometric.hpp"
 
 
-int predict(vector<int> given) {
+int * predict(vector<int> given) {
     int last = *(given.rbegin());
     int second_last = *(given.rbegin() + 1);
 
@@ -19,17 +19,18 @@ int predict(vector<int> given) {
 
     for (auto &type : series_types) {
         if (type->is_a(given)) {
-            return type->get_next(second_last, last);
+            static int prediction = type->get_next(second_last, last);
+            return &prediction;
         }
     }
-    return NULL;
+    return nullptr;
 }
 
-void respond_or_exit(int predicted_value) {
-    if (predicted_value == NULL) {
+void respond_or_exit(int * predicted_value) {
+    if (predicted_value == nullptr) {
         exit(1);
     } else {
-        cout << predicted_value << endl;
+        cout << *predicted_value << endl;
         exit(0);
     }
 }
