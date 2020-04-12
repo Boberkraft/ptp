@@ -26,8 +26,6 @@ int predict(vector<int> given) {
 }
 
 void respond_or_exit(int predicted_value) {
-    cout << "Hello!" << endl;
-    cout << predicted_value << endl;
     if (predicted_value == NULL) {
         exit(1);
     } else {
