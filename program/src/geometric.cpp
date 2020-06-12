@@ -1,10 +1,10 @@
 #include "geometric.hpp"
 
-std::string Geometric::get_name() {
+string Geometric::get_name() {
     return "Geometric Series";
 }
 
-bool Geometric::is_a(std::vector<int> given) {
+bool Geometric::is_a(vector<int> given) {
     int first = given[0];
     int second = given[1];
 

@@ -1,10 +1,10 @@
 #include "arithmetic.hpp"
 
-std::string Arithmetic::get_name() {
+string Arithmetic::get_name() {
     return "Arithmetic Series";
 }
 
-bool Arithmetic::is_a(std::vector<int> given) {
+bool Arithmetic::is_a(vector<int> given) {
     int first = given[0];
     int second = given[1];
     int rest = second - first;

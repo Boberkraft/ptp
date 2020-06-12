@@ -5,12 +5,11 @@
 #include <string>
 #include <iostream>
 
-using std::unique_ptr, std::vector, std::cout, std::endl;
-
+using std::unique_ptr, std::vector, std::cout, std::endl, std::string;
 
 struct Prediction {
     int next_number;
-    std::string series_name;
+    string series_name;
 };
 
 void print(unique_ptr<Prediction> prediction);
