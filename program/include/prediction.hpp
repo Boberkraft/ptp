@@ -8,7 +8,7 @@
 using std::unique_ptr, std::vector, std::cout, std::endl, std::string;
 
 struct Prediction {
-    int next_number;
+    float next_number;
     string series_name;
 };
 

@@ -8,7 +8,7 @@ bool Geometric::is_a(vector<int> given) {
     int first = given[0];
     int second = given[1];
 
-    int q = second / first;
+    float q = second / float(first);
 
     for (int i = 2; i < given.size(); i++) {
         if (q != given[i] / float(given[i - 1])) {
@@ -18,7 +18,7 @@ bool Geometric::is_a(vector<int> given) {
     return true;
 }
 
-int Geometric::get_next(int first, int second) {
-    int q = second / float(first);
+float Geometric::get_next(int first, int second) {
+    float q = second / float(first);
     return second * q;
 }
