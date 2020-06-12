@@ -17,7 +17,7 @@ bool Arithmetic::is_a(vector<int> given) {
     return true;
 }
 
-int Arithmetic::get_next(int first, int second) {
+float Arithmetic::get_next(int first, int second) {
     int rest = second - first;
     return second + rest;
 }
