@@ -1,35 +1,26 @@
-#include <iostream>
-#include <vector>
-#include <string>
-
-using std::unique_ptr, std::vector, std::cout, std::endl;
-
+#include "prediction.hpp"
 #include "series.hpp"
 #include "arithmetic.hpp"
 #include "geometric.hpp"
 
-unique_ptr<int> predict(vector<int> given) {
-    int last = *(given.rbegin());
-    int second_last = *(given.rbegin() + 1);
-
+unique_ptr<Prediction> predict(vector<int> given) {
     vector<unique_ptr<Series>> series_types;
     series_types.emplace_back(new Arithmetic);
     series_types.emplace_back(new Geometric);
 
     for (auto &type : series_types) {
         if (type->is_a(given)) {
-            static int prediction = type->get_next(second_last, last);
-            return unique_ptr<int> (&prediction);
+            return unique_ptr<Prediction>(type->get_prediction(given));
         }
     }
     return nullptr;
 }
 
-void respond_or_exit(unique_ptr<int> predicted_value) {
-    if (predicted_value == nullptr) {
+void respond_or_exit(unique_ptr<Prediction> prediction) {
+    if (prediction == nullptr) {
         exit(1);
     } else {
-        cout << *predicted_value << endl;
+        print(std::move(prediction));
         exit(0);
     }
 }

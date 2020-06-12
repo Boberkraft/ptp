@@ -6,8 +6,9 @@
 class Geometric : public Series
 {
     public:
-    bool is_a(std::vector<int> given);
-    int get_next(int first, int second);
+    std::string get_name() override;
+    bool is_a(std::vector<int> given) override;
+    int get_next(int first, int second) override;
 };
 
 #endif
