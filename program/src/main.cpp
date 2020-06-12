@@ -2,6 +2,7 @@
 #include "series.hpp"
 #include "arithmetic.hpp"
 #include "geometric.hpp"
+#include "test.hpp"
 
 unique_ptr<Prediction> predict(vector<int> given) {
     vector<Series *> series_types;
@@ -25,8 +26,16 @@ void respond_and_exit(unique_ptr<Prediction> prediction) {
     }
 }
 
-int main() {
-    vector<int> numbers = {1, 2, 3, 4, 5};
-
-    respond_and_exit(predict(numbers));
+int main(int argc, char * argv[]) {
+    vector<int> numbers;
+    if(!strcmp(argv[1], "--test")) {
+        printf("testy, bla bla bla" );
+    }
+    else if (argc >= 2) {
+        for (int i = 1; i < argc; i++) {
+            int number = std::stoi(argv[i]);
+            numbers.push_back(number);
+        }
+        respond_and_exit(predict(numbers));
+    }
 }
