@@ -4,19 +4,19 @@
 #include "geometric.hpp"
 
 unique_ptr<Prediction> predict(vector<int> given) {
-    vector<unique_ptr<Series>> series_types;
+    vector<Series*> series_types;
     series_types.emplace_back(new Arithmetic);
     series_types.emplace_back(new Geometric);
 
     for (auto &type : series_types) {
         if (type->is_a(given)) {
-            return unique_ptr<Prediction>(type->get_prediction(given));
+            return unique_ptr<Prediction> (type->get_prediction(given));
         }
     }
     return nullptr;
 }
 
-void respond_or_exit(unique_ptr<Prediction> prediction) {
+void respond_and_exit(unique_ptr<Prediction> prediction) {
     if (prediction == nullptr) {
         exit(1);
     } else {
@@ -26,7 +26,7 @@ void respond_or_exit(unique_ptr<Prediction> prediction) {
 }
 
 int main() {
-    vector<int> given = { 1, 2, 3, 4, 5 };
+    vector<int> numbers = { 1, 2, 3, 4, 5 };
 
-    respond_or_exit(predict(given));  
+    respond_and_exit(predict(numbers));
 }
