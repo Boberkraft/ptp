@@ -8,6 +8,4 @@ project(program/ciagi)
 
 include_directories(program/include)
 file(GLOB SOURCES "program/src/*.cpp")
-add_executable(ciagi ${SOURCES} program/include/test.h)
-
-
+add_executable(ciagi ${SOURCES})

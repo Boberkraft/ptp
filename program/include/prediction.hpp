@@ -5,6 +5,8 @@
 #include <string>
 #include <iostream>
 
+#include "arithmetic.hpp"
+#include "geometric.hpp"
 
 using std::unique_ptr, std::vector, std::cout, std::endl, std::string;
 
@@ -14,5 +16,7 @@ struct Prediction {
 };
 
 void print(unique_ptr<Prediction> prediction);
+
+unique_ptr<Prediction> predict(vector<int> given);
 
 #endif

@@ -1,24 +1,5 @@
 #include "prediction.hpp"
-#include "series.hpp"
-#include "arithmetic.hpp"
-#include "geometric.hpp"
 #include "test.hpp"
-#include <sstream>
-#include <iostream>
-#include <cassert>
-
-unique_ptr<Prediction> predict(vector<int> given) {
-    vector<Series *> series_types;
-    series_types.emplace_back(new Arithmetic);
-    series_types.emplace_back(new Geometric);
-
-    for (auto &type : series_types) {
-        if (type->is_a(given)) {
-            return unique_ptr<Prediction>(type->get_prediction(given));
-        }
-    }
-    return nullptr;
-}
 
 void respond_and_exit(unique_ptr<Prediction> prediction) {
     if (prediction == nullptr) {
