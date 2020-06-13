@@ -1,4 +1,7 @@
 #include "prediction.hpp"
+#include "series.hpp"
+#include "arithmetic.hpp"
+#include "geometric.hpp"
 
 void print(unique_ptr<Prediction> prediction) {
     cout << "It's " << prediction->series_name

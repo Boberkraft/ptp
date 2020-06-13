@@ -10,17 +10,11 @@ void respond_and_exit(unique_ptr<Prediction> prediction) {
     }
 }
 
-void testowanie() {
-    vector<int> numbers;
-    numbers = {1, 2, 3};
-    cout<<predict(numbers)->next_number;
-}
-
 
 void parse_and_validate(int argc, char *argv[]) {
     vector<int> numbers;
     if(!strcmp(argv[1], "--tests")) {
-        testowanie();
+        run_tests();
     }
     else if (argc >= 2) {
         for (int i = 1; i < argc; i++) {
@@ -38,5 +32,6 @@ void parse_and_validate(int argc, char *argv[]) {
 
 
 int main(int argc, char *argv[]) {
-    parse_and_validate(argc, argv);
+    run_tests();
+    //parse_and_validate(argc, argv);
 }

@@ -7,5 +7,6 @@ Prediction *Series::get_prediction(vector<int> given) {
     auto answer = new Prediction;
     answer->next_number = this->get_next(second_last, last);
     answer->series_name = this->get_name();
+    answer->input = given;
     return answer;
 }
