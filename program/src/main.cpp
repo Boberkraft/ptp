@@ -33,5 +33,5 @@ void parse_and_validate(int argc, char *argv[]) {
 
 int main(int argc, char *argv[]) {
     run_tests();
-    //parse_and_validate(argc, argv);
+//    parse_and_validate(argc, argv);
 }
