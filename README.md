@@ -3,27 +3,25 @@
 Zadaniem programu jest odgadnięcie przez komputera kolejnego wyrazu ciągu liczbowego na podstawie podanych kilku kolejnych wyrazów przez użytkownika, np. trzech. 
 Komputer próbuje rozpoznać ciąg arytmetyczny bądź geometryczny we wprowadzonych wartościach (ew. też inne, zgodnie z inwencją autora programu) i na tej podstawie obliczyć kolejny wyraz.
 
-**Dane wejściowe / argumenty programu**
+####Dane wejściowe / argumenty programu
 1. Kolejny cyfry ciągu oddzielone spacjami
 <br><br>
 
-**Dane wyjściowe**
+####Dane wyjściowe
 
 Informacja jaki został wykryty ciąg oraz jego następny wyraz
 
-<br>
-**Dostępne ciągi:**
+####Dostępne ciągi:
 
 1. Geometryczny (np. _2 4 8 16..._)
 2. Arytmetyczny (np. _2 4 6 8..._)
 
-<br>
-**Przykład wywołania programu:**
+
+####Przykład wywołania programu:
 
 `./ciagi 2 4 6 8`
 
-<br>
-**Przykład danych wyjściowych:**
+####Przykład danych wyjściowych:
 
 `It's Arithmetic Series. Next number is 6` oraz kod programu (exit code) `0`
 
