@@ -5,6 +5,7 @@
 #include <string>
 #include <iostream>
 
+
 using std::unique_ptr, std::vector, std::cout, std::endl, std::string;
 
 struct Prediction {
