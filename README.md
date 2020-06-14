@@ -51,4 +51,4 @@ to przerywane jest szukanie i wyświetlany jest wynik.
 
 
 - Program posiada walidację. W przypadku gdy zostały przesłane niepoprawne argumenty (np. napisy zamiast liczb), to program
-kończy się kodem `2`, a w przypadku gdy nie zostawł wykryty żaden ciąg, to program kończy się kodem `1`.
+kończy się kodem `2`, a w przypadku gdy nie został wykryty żaden ciąg, to program kończy się kodem `1`.
