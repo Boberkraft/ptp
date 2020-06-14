@@ -4,7 +4,7 @@ Zadaniem programu jest odgadnięcie przez komputer kolejnego wyrazu ciągu liczb
 Komputer próbuje rozpoznać ciąg arytmetyczny bądź geometryczny we wprowadzonych wartościach (ew. też inne, zgodnie z inwencją autora programu) i na tej podstawie obliczyć kolejny wyraz.
 
 #### Dane wejściowe / argumenty programu
-1. Kolejny cyfry ciągu oddzielone spacjami
+1. Kolejne cyfry ciągu oddzielone spacjami
 <br><br>
 
 #### Dane wyjściowe
