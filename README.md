@@ -30,7 +30,9 @@ Należy użyc cmake, a następnie narzędzi jakie cmake zbudował. Na Linuxie wy
 
 ```
 cmake -B ./build
+cd build
 make
+./ciagi
 ```
 
 ## Co z dokumentacją?
