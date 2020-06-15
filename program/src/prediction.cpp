@@ -2,6 +2,8 @@
 #include "series.hpp"
 #include "arithmetic.hpp"
 #include "geometric.hpp"
+#include "constant.hpp"
+
 
 void print(unique_ptr<Prediction> prediction) {
     cout << "It's " << prediction->series_name
@@ -12,6 +14,7 @@ unique_ptr<Prediction> predict(vector<int> given) {
     vector<Series *> series_types;
     series_types.emplace_back(new Arithmetic);
     series_types.emplace_back(new Geometric);
+    series_types.emplace_back(new Constant);
 
     for (auto &type : series_types) {
         if (type->is_a(given)) {
