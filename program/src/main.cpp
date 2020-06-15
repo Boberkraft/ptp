@@ -1,6 +1,10 @@
 #include "prediction.hpp"
 #include "test.hpp"
 
+#define OK 0
+#define NOT_FOUND 1
+#define ERROR 2
+
 void respond_and_exit(unique_ptr<Prediction> prediction) {
     if (prediction == nullptr) {
         exit(1);
@@ -11,35 +15,32 @@ void respond_and_exit(unique_ptr<Prediction> prediction) {
 }
 
 
-vector<int> parse_and_validate(int argc, char *argv[]) {
-    vector<int> numbers;
+vector<int>* parse_and_validate(int argc, char *argv[]) {
+    if (argc == 1 || argc == 2) {
+        exit(NOT_FOUND);
+    }
 
     if (!strcmp(argv[1], "--tests")) {
         run_tests();
+        exit(OK);
     }
 
-    else if (argc >= 2) {
-        for (int i = 1; i < argc; i++) {
-            try {
-                int number = std::stoi(argv[i]);
-                numbers.push_back(number);
-            }
-            catch (...) {
-                exit(2);
-            }
+    auto numbers = new vector<int>;
+    for (int i = 1; i < argc; i++) {
+        try {
+            int number = std::stoi(argv[i]);
+            numbers->push_back(number);
+        }
+        catch (...) {
+            exit(ERROR);
         }
     }
-
-    else {
-        exit(2);
-    }
-
     return numbers;
 }
 
 
 int main(int argc, char *argv[]) {
-    vector<int> numbers = parse_and_validate(argc, argv);
-    respond_and_exit(predict(numbers));
-    return 0;
+    auto numbers = parse_and_validate(argc, argv);
+    respond_and_exit(predict(*numbers));
+    return OK;
 }
