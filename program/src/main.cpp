@@ -1,22 +1,5 @@
 #include "prediction.hpp"
-#include "series.hpp"
-#include "constant.hpp"
-#include "arithmetic.hpp"
-#include "geometric.hpp"
-
-unique_ptr<Prediction> predict(vector<int> given) {
-    vector<Series *> series_types;
-    series_types.emplace_back(new Constant);
-    series_types.emplace_back(new Arithmetic);
-    series_types.emplace_back(new Geometric);
-
-    for (auto &type : series_types) {
-        if (type->is_a(given)) {
-            return unique_ptr<Prediction>(type->get_prediction(given));
-        }
-    }
-    return nullptr;
-}
+#include "test.hpp"
 
 void respond_and_exit(unique_ptr<Prediction> prediction) {
     if (prediction == nullptr) {
@@ -27,8 +10,36 @@ void respond_and_exit(unique_ptr<Prediction> prediction) {
     }
 }
 
-int main() {
-    vector<int> numbers = {1, 2, 3, 4, 5};
 
+vector<int> parse_and_validate(int argc, char *argv[]) {
+    vector<int> numbers;
+
+    if (!strcmp(argv[1], "--tests")) {
+        run_tests();
+    }
+
+    else if (argc >= 2) {
+        for (int i = 1; i < argc; i++) {
+            try {
+                int number = std::stoi(argv[i]);
+                numbers.push_back(number);
+            }
+            catch (...) {
+                exit(2);
+            }
+        }
+    }
+
+    else {
+        exit(2);
+    }
+
+    return numbers;
+}
+
+
+int main(int argc, char *argv[]) {
+    vector<int> numbers = parse_and_validate(argc, argv);
     respond_and_exit(predict(numbers));
+    return 0;
 }
