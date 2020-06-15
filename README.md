@@ -26,7 +26,7 @@ Informacja jaki został wykryty ciąg oraz jego następny wyraz
 `It's Arithmetic Series. Next number is 6` oraz kod programu (exit code) `0`
 
 ## Jak skompilować?
-Należy użyc cmake, a następnie narzędzi jakie cmake zbudował. Na Linuxie wygląda to następująco:
+Należy użyc cmake, a następnie narzędzi jakie cmake zbudował. Na Linuxie (macOS) wygląda to następująco:
 
 ```
 cmake -B ./build
