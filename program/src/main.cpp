@@ -11,11 +11,13 @@ void respond_and_exit(unique_ptr<Prediction> prediction) {
 }
 
 
-void parse_and_validate(int argc, char *argv[]) {
+vector<int> parse_and_validate(int argc, char *argv[]) {
     vector<int> numbers;
-    if(!strcmp(argv[1], "--tests")) {
+
+    if (!strcmp(argv[1], "--tests")) {
         run_tests();
     }
+
     else if (argc >= 2) {
         for (int i = 1; i < argc; i++) {
             try {
@@ -26,12 +28,18 @@ void parse_and_validate(int argc, char *argv[]) {
                 exit(2);
             }
         }
-        respond_and_exit(predict(numbers));
     }
+
+    else {
+        exit(2);
+    }
+
+    return numbers;
 }
 
 
 int main(int argc, char *argv[]) {
-    run_tests();
-//    parse_and_validate(argc, argv);
+    vector<int> numbers = parse_and_validate(argc, argv);
+    respond_and_exit(predict(numbers));
+    return 0;
 }
