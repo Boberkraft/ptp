@@ -46,7 +46,7 @@ Utrzymywanie dokumentacji jest trudne. Chcemy uniknąć jej przedawnienia.
 - Nagłówki znajdują się w `./program/includes/`, a pliki źródłowe w `./program/src/`.
 
 
-- Klasa Series (`./program/includes/series.h`) definiuje interfejs dla wszystkich ciągów
+- Klasa `Series` (`./program/includes/series.h`) definiuje interfejs dla wszystkich ciągów.
 - Każdy obiekt konkretnego ciągu (np. `./program/includes/arithmetic.h`) jest w stanie rozpoznać swój ciąg.
 - W jednej funkcji odbywa się instanizacja wszyskich ciągów i jak któryś wykryje swój ciąg, 
 to przerywane jest szukanie i wyświetlany jest wynik. 
