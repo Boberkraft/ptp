@@ -1,10 +1,12 @@
 #include "prediction.hpp"
 #include "series.hpp"
+#include "constant.hpp"
 #include "arithmetic.hpp"
 #include "geometric.hpp"
 
 unique_ptr<Prediction> predict(vector<int> given) {
     vector<Series *> series_types;
+    series_types.emplace_back(new Constant);
     series_types.emplace_back(new Arithmetic);
     series_types.emplace_back(new Geometric);
 
