@@ -4,7 +4,6 @@
 
 class Constant : public Series {
 public:
-    vector<int> given;
     string get_name() override;
     void initialize(vector<int> given) override;
     bool is_a() override;
