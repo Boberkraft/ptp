@@ -15,7 +15,7 @@ void respond_and_exit(unique_ptr<Prediction> prediction) {
 }
 
 
-vector<int>* parse_and_validate(int argc, char *argv[]) {
+vector<int>* parse_or_exit(int argc, char *argv[]) {
     if (argc == 1 || argc == 2) {
         exit(NOT_FOUND);
     }
@@ -40,7 +40,7 @@ vector<int>* parse_and_validate(int argc, char *argv[]) {
 
 
 int main(int argc, char *argv[]) {
-    vector<int>* numbers = parse_and_validate(argc, argv);
+    vector<int>* numbers = parse_or_exit(argc, argv);
     respond_and_exit(predict(*numbers));
     return OK;
 }
