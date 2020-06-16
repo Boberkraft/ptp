@@ -7,10 +7,10 @@
 
 void respond_and_exit(unique_ptr<Prediction> prediction) {
     if (prediction == nullptr) {
-        exit(1);
+        exit(NOT_FOUND);
     } else {
         print(std::move(prediction));
-        exit(0);
+        exit(OK);
     }
 }
 
