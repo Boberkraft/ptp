@@ -52,4 +52,7 @@ void run_tests() {
     test("Geometric Series", -512, predict({8, -32, 128}));
     test("Geometric Series", 243, predict({1, 3, 9, 27, 81}));
     test("Geometric Series", 625, predict({-5000, 2500, -1250}));
+    test("Constant Series", 5, predict({5, 5, 5}));
+    test("Constant Series", 1, predict({1, 1}));
+    test("Constant Series", -98, predict({-98, -98}));
 }

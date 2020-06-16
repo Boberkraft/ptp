@@ -16,13 +16,18 @@ void respond_and_exit(unique_ptr<Prediction> prediction) {
 
 
 vector<int>* parse_or_exit(int argc, char *argv[]) {
-    if (argc == 1 || argc == 2) {
+
+    if (argc == 1) {
         exit(NOT_FOUND);
     }
 
     if (!strcmp(argv[1], "--tests")) {
         run_tests();
         exit(OK);
+    }
+
+    if (argc == 2) {
+        exit(NOT_FOUND);
     }
 
     auto numbers = new vector<int>;
