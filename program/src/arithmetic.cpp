@@ -4,9 +4,14 @@ string Arithmetic::get_name() {
     return "Arithmetic Series";
 }
 
-bool Arithmetic::is_a(vector<int> given) {
+void Arithmetic::initialize(vector<int> given) {
+    this->given = given;
+}
+
+bool Arithmetic::is_a() {
     int first = given[0];
     int second = given[1];
+
     int rest = second - first;
 
     for (int i = 2; i < given.size(); i++) {
@@ -17,7 +22,11 @@ bool Arithmetic::is_a(vector<int> given) {
     return true;
 }
 
-float Arithmetic::get_next(int first, int second) {
+float Arithmetic::get_next() {
+//    int first = given[given.size() - 2];
+    int first = given.end()[-2];
+    int second = given.end()[-1];
+
     int rest = second - first;
     return second + rest;
 }

@@ -4,7 +4,11 @@ string Geometric::get_name() {
     return "Geometric Series";
 }
 
-bool Geometric::is_a(vector<int> given) {
+void Geometric::initialize(vector<int> given) {
+    this->given = given;
+}
+
+bool Geometric::is_a() {
     int first = given[0];
     int second = given[1];
 
@@ -18,7 +22,10 @@ bool Geometric::is_a(vector<int> given) {
     return true;
 }
 
-float Geometric::get_next(int first, int second) {
-    float q = second / float(first);
+float Geometric::get_next() {
+    auto first = float(given.end()[-2]);
+    auto second = float(given.end()[-1]);
+
+    float q = second / first;
     return second * q;
 }

@@ -4,9 +4,11 @@
 
 class Constant : public Series {
 public:
+    vector<int> given;
     string get_name() override;
-    bool is_a(vector<int> given) override;
-    float get_next(int first, int second) override;
+    void initialize(vector<int> given) override;
+    bool is_a() override;
+    float get_next() override;
 };
 
 #endif

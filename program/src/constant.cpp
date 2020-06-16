@@ -4,7 +4,11 @@ string Constant::get_name() {
     return "Constant Series";
 }
 
-bool Constant::is_a(vector<int> given) {
+void Constant::initialize(vector<int> given) {
+    this->given = given;
+}
+
+bool Constant::is_a() {
     int first = given[0];
 
     for (int i = 1; i < given.size(); i++) {
@@ -15,6 +19,6 @@ bool Constant::is_a(vector<int> given) {
     return true;
 }
 
-float Constant::get_next(int first, int _second) {
-    return float(first);
+float Constant::get_next() {
+    return float(given[0]);
 }

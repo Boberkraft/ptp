@@ -36,11 +36,7 @@ vector<int>* parse_and_validate(int argc, char *argv[]) {
 
 
 int main(int argc, char *argv[]) {
-    auto numbers = parse_and_validate(argc, argv);
-    if (numbers == nullptr) {
-        exit(1);
-    } else {
-        respond_and_exit(predict(*numbers));
-    }
+    vector<int>* numbers = parse_and_validate(argc, argv);
+    respond_and_exit(predict(*numbers));
     return 0;
 }

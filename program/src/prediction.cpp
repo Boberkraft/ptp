@@ -10,14 +10,15 @@ void print(unique_ptr<Prediction> prediction) {
 }
 
 unique_ptr<Prediction> predict(vector<int> given) {
-    vector<Series *> series_types;
-    series_types.emplace_back(new Arithmetic);
-    series_types.emplace_back(new Constant);
-    series_types.emplace_back(new Geometric);
+    vector<unique_ptr<Series>> series_types;
+    series_types.emplace_back(new Constant());
+    series_types.emplace_back(new Arithmetic());
+    series_types.emplace_back(new Geometric());
 
     for (auto &type : series_types) {
-        if (type->is_a(given)) {
-            return unique_ptr<Prediction>(type->get_prediction(given));
+        type->initialize(given);
+        if (type->is_a()) {
+            return unique_ptr<Prediction>(type->get_prediction());
         }
     }
     return nullptr;
