@@ -3,9 +3,9 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
-project(program/ciagi)
+project(cpp/ciagi)
 
 
-include_directories(program/include)
-file(GLOB SOURCES "program/src/*.cpp")
+include_directories(cpp/include)
+file(GLOB SOURCES "cpp/src/*.cpp")
 add_executable(ciagi ${SOURCES})
